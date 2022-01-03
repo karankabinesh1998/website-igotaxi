@@ -1,0 +1,102 @@
+.icon-effect{
+    font-size: 20px;
+    width: 45px;
+    line-height: 42px;
+    height: 45px;
+    border-radius: 100%;
+    border: 1px solid;
+    text-align: center;
+    float: left;
+    margin-right: 12px;
+}
+
+.footer-icon{
+    color: #d1d1d1;
+}
+
+.footer-icon-end{
+    margin-right: 10px;
+    width: 15px;
+    height: 22px;
+    float: left;
+    line-height: 20px;
+}
+
+.reg-frm input[type="text"]{
+    color: black;
+}
+
+.form-input-icon{
+    position: absolute;
+    top: 19px;
+    left: 15px;
+    color: #a6a6a6;
+}
+
+.auth-icons{
+    float: left;
+    margin-right: 20px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    /* border-radius: 50%; */
+    /* border: 1px solid #cecece; */
+    line-height: 55px;
+    text-align: center;
+}
+
+.phone-info-icon{
+    font-size: 22px;
+    width: 33px;
+    line-height: 40px;
+    height: 45px;
+    /* border-radius: 100%; */
+    color: #fff;
+    /* border: 2px solid #495d6f; */
+    text-align: center;
+    float: left;
+    /* background: #253747; */
+    position: relative;
+    top: 35px;
+    left: 10px;
+}
+
+.class-address{
+    font-size: 8px !important;
+}
+
+@media(max-width:767px){
+    .icon-effect{
+        margin-right: 15px;
+        /* width: 100%; */
+        display: inline-block;
+        height: auto;
+        line-height: 40px;
+        float: none;
+        border-radius: 0;
+        font-size: 22px;
+    }
+
+    .phone-info-icon{
+        top: 0;
+        left: 0;
+        width: 43px;
+        float: none;
+        border-radius: 100%;
+        border: 2px solid #495d6f;
+        background: #253747; 
+    }
+}
+
+/* style={{
+    fontSize: '20px',
+    width: '45px',
+    lineHeight: '42px',
+    height: '45px',
+    borderRadius: '100%',
+    border: '1px solid',
+    textAlign: 'center',
+    float: 'left',
+    marginRight: '12px'
+  }} */
+  

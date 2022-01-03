@@ -1,5 +1,5 @@
 import React from 'react';
-import Routes from './routes/routes';
+import Routes from './Routes/Routes';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
