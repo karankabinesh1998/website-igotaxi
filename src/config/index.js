@@ -1,5 +1,5 @@
 const env = {
-   // ACCESS_POINT: "http://localhost:5000",
+   // ACCESS_POINT: "http://localhost:5001",
    ACCESS_POINT:"https://admin.igotaxy.in"
   };
   

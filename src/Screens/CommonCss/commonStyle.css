@@ -26,6 +26,10 @@
     color: black;
 }
 
+.frm input[type="email"]{
+    color: black;
+}
+
 .form-input-icon{
     position: absolute;
     top: 19px;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AboutUs from '../Screens/AboutUs/AboutUs';
-import Register from '../Screens/Authorization/Register';
+import Authorization from '../Screens/Authorization/Authorization';
 import Contact from '../Screens/Contact/Contact';
 import PageNotFound from '../Screens/ErrorPages/PageNotFound';
 import Footer from '../Screens/Footer/Footer';
 import Header from '../Screens/Header/Header';
 import HomePage from '../Screens/HomePage/HomePage';
+import MyAccount from '../Screens/MyAccount/MyAccount';
 import OurServices from '../Screens/OurServices/OurServices';
 import PrivacyAndPolicy from '../Screens/PrivacyAndPolicy/PrivacyAndPolicy';
 
@@ -76,7 +77,18 @@ export default function Routes() {
         render={(props) => (
           <div class="tj-wrapper">
             <Header {...props} />
-            <Register {...props} />
+            <Authorization {...props} />
+            <Footer {...props} />
+          </div>
+        )}
+      />
+      <Route
+        exact
+        path={'/my-account'}
+        render={(props) => (
+          <div class="tj-wrapper">
+            <Header {...props} />
+            <MyAccount {...props} />
             <Footer {...props} />
           </div>
         )}
