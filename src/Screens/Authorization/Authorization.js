@@ -162,7 +162,7 @@ export default class Authorization extends Component {
                 </div>
                 <div class="tab-content">
                   <div class={loginOrRegister ? "tab-pane active" : "tab-pane" } id="login">
-                  <div class="col-md-6 col-sm-6">
+                  <div class="mobileView col-md-6 col-sm-6">
                       <div class="login-frm" method="POST">
                         <div class="field-holder">
                           <IconContext.Provider value={{ color: 'red', className: 'form-input-icon' }}>
@@ -225,7 +225,7 @@ export default class Authorization extends Component {
                     </div>
                   </div>
                   <div class={loginOrRegister ? "tab-pane" : "tab-pane active" } id="register">
-                    <div class="col-md-6 col-sm-6">
+                    <div class="mobileView col-md-6 col-sm-6">
                       <div class="reg-frm" method="POST">
                         <div class="field-holder">
                           <IconContext.Provider value={{ color: 'red', className: 'form-input-icon' }}>

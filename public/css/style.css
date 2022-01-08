@@ -2088,7 +2088,7 @@ h1,h2,h3,h4,h5,h6{
 	padding: 12px 20px;
 	font-size: 14px;
 	line-height: 24px;
-	color: #a6a6a6;
+	color: #333;
 	border: 1px solid #e8e8e8;
 	display: block;
 	margin-bottom: 15px;
@@ -2346,7 +2346,7 @@ h1,h2,h3,h4,h5,h6{
 	border:1px solid #e8e8e8;
 	font-size:14px;
 	line-height:24px;
-	color:#a6a6a6;
+	color:#333;
 	margin-right:5px;
 }
 .contact_frm .frm-field input[type="email"]{
@@ -4089,7 +4089,7 @@ h1,h2,h3,h4,h5,h6{
 	padding:12px 15px;
 	font-size:14px;
 	line-height:24px;
-	color:#a6a6a6;
+	color:#333;
 	border:1px solid #e8e8e8;
 	display:block;
 	margin-bottom:15px;
@@ -4334,7 +4334,7 @@ h1,h2,h3,h4,h5,h6{
 	height:45px;
 	display:block;
 	padding:0 30px;
-	color:#a6a6a6;
+	color:#333;
 	font-size:14px;
 	line-height:24px;
 	border-radius:5px;
@@ -4601,7 +4601,7 @@ h1,h2,h3,h4,h5,h6{
 	height:45px;
 	border:1px solid #e8e8e8;
 	padding:0 15px;
-	color:#a6a6a6;
+	color:#333;
 	font-size:14px;
 	line-height:24px;
 	margin-bottom:20px;
@@ -4613,7 +4613,7 @@ h1,h2,h3,h4,h5,h6{
 	resize:none;
 	padding:15px 15px;
 	height:165px;
-	color:#a6a6a6;
+	color:#333;
 	font-size:14px;
 	line-height:24px;
 	margin-bottom:15px;

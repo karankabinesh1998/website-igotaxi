@@ -24,6 +24,62 @@ const userLogin = async (formdata, callback) => {
     })
 };
 
+const myAccountDetails = async (callback) => {
+  await http.get(ACCESS_POINT + `/user/my-account`, {
+    headers: {
+      'Authorization': Authorization
+    },
+  }).then(async (response) => {
+    callback(response);
+  })
+    .catch(function (error) {
+      if (error.response.status === 401) {
+        userCheck();
+      }
+      if (error.response) {
+        callback({ status: error.response.status, message: error.response.data?.error ? error.response.data?.error : "General server error" })
+      }
+    })
+};
+
+const updateAccountDetails = async (formdata, callback) => {
+  await http.patch(ACCESS_POINT + `/user/my-account`, formdata, {
+    headers: {
+      'Authorization': Authorization,
+      'Content-Type': 'application/json',
+    },
+  }).then(async (response) => {
+    callback(response);
+  })
+    .catch(function (error) {
+      if (error.response.status === 401) {
+        userCheck();
+      }
+      if (error.response) {
+        callback({ status: error.response.status, message: error.response.data?.error ? error.response.data?.error : "General server error" })
+      }
+    })
+};
+
+const addContactUs = async (formdata,callback) => {
+  const result = await http.post(ACCESS_POINT + `/user/contact`, formdata, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': Authorization
+    },
+  }).then(async (response) => {
+    callback(response);
+  })
+    .catch(function (error) {
+      if(error.response.status===401){
+        userCheck();
+      }
+      if (error.response) {
+        callback({ status: error.response.status, message: error.response.data?.error ? error.response.data?.error : "General server error" })
+      }
+    })
+};
+
 const addUser = async (formdata, callback) => {
   await http.post(ACCESS_POINT + `/user/register`, formdata, {
     headers: {
@@ -61,5 +117,8 @@ const userLogout = async (formdata={}, callback) => {
 export default {
   userLogin,
   addUser,
-  userLogout
+  userLogout,
+  myAccountDetails,
+  updateAccountDetails,
+  addContactUs
 }

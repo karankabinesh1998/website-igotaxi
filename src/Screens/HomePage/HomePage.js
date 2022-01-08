@@ -19,7 +19,7 @@ export default class HomePage extends Component {
 									<strong>More recently with desktop publishing software ncluding versions</strong>
 									<h2>Get deals on Taxi Booking for Popular Cities</h2>
 									<div class="banner-btns">
-										<a href="https://themesjungle.net/html/prime-cab/contact.html" class="btn-style-1">Contact Us <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+										<a href="/contact" class="btn-style-1">Contact Us <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 									</div>
 								</div>
 							</div>

@@ -35,6 +35,24 @@
     top: 19px;
     left: 15px;
     color: #a6a6a6;
+};
+
+.form-ico{
+    font-size: 44px;
+    text-align: center;
+    display: block;
+    padding-bottom: 15px;
+};
+
+.icon-account{
+    /* -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto; */
+    line-height: 1;
+    margin-right: 3px;
 }
 
 .auth-icons{
@@ -90,17 +108,9 @@
         border: 2px solid #495d6f;
         background: #253747; 
     }
-}
 
-/* style={{
-    fontSize: '20px',
-    width: '45px',
-    lineHeight: '42px',
-    height: '45px',
-    borderRadius: '100%',
-    border: '1px solid',
-    textAlign: 'center',
-    float: 'left',
-    marginRight: '12px'
-  }} */
+    .mobileView{
+        margin-top: 13px;
+    }
+}
   
