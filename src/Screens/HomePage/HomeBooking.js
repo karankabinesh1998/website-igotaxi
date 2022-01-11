@@ -107,15 +107,15 @@ export default class HomeBooking extends Component {
       <section class="tj-banner-form2">
         <div class="container">
           <div class="row">
-            <div class="col-md-12 col-sm-12" style={{ backgroundColor: 'cadetblue' }}>
-              <div class="tj-form2-tabs" style={{ backgroundColor: 'cadetblue' }}>
+            <div class="col-md-12 col-sm-12" style={{ backgroundColor:'#e8e8e8' }}>
+              <div class="tj-form2-tabs" style={{ backgroundColor:'#e8e8e8' }} >
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#one-way" data-toggle="tab">One Way</a></li>
                   <li><a href="#two-way" data-toggle="tab">Two Way</a></li>
                   {/* <li><a href="#out-station" data-toggle="tab">Out Station</a></li> */}
                 </ul>
               </div>
-              <div class="tab-content" style={{ backgroundColor: 'cadetblue' }}>
+              <div class="tab-content" style={{ backgroundColor:'#e8e8e8' }} >
                 <div class="tab-pane active" id="one-way">
                   <div class="trip-frm2">
                     <div class="col-md-12 col-sm-12">
@@ -138,11 +138,12 @@ export default class HomeBooking extends Component {
                     <br/>
                     <div class="col-md-6 col-sm-6">
                       <div class="field-box">
-                        <DatePickerModule
+                        {/* <DatePickerModule
                           startDate={this.state.pickUpDate}
                           HandlePickUpdate={this.handleDatePickChange}
                           minTime={this.state.minTime}
-                        />
+                        /> */}
+                        <input type='date' style={{ width:'100%' , height:'49px' }} />
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6">

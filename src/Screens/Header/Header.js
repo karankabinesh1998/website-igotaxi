@@ -15,7 +15,7 @@ export default class Header extends Component {
 				</div>
 			</div>
       <header class="tj-header">
-        <div class="container">
+        {/* <div class="container">
           <div class="row">
             <div class="col-md-3 col-xs-12 col-sm-4">
               <div class="tj-logo">
@@ -57,7 +57,7 @@ export default class Header extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div class="tj-nav-row">
           <div class="container">
