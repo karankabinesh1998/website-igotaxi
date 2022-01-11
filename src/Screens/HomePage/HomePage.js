@@ -6,8 +6,8 @@ export default class HomePage extends Component {
   render() {
     return (
       <React.Fragment>
-        <section class="tj-banner">
-				<div class="container">
+			<section class="tj-banner">
+				{/* <div class="container">
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="banner-caption">
@@ -21,7 +21,7 @@ export default class HomePage extends Component {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</section>
       
       <HomeBooking />

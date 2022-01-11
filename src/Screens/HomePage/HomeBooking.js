@@ -1,9 +1,107 @@
 import React, { Component } from 'react';
 import Autocomplete from "react-google-autocomplete";
-
+import DatePickerModule from '../../PureComponent/DatePickerModule';
+import moment from 'moment';
+import swal from 'sweetalert';
+import '../CommonCss/commonStyle.css';
 
 
 export default class HomeBooking extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      pickUpLocation:'',
+      pickUpCity:null,
+      dropOffLocation:'',
+      dropUpCity:null,
+      pickUpDate:'',
+      pickUpDate_new:'',
+      minTime: this.calculateMinTime(new Date()),
+    }
+  }
+
+  handleDatePickChange=async(e)=>{
+    console.log('object',e)
+  };
+
+  calculateMinTime = date => {
+    let isToday = moment(date).isSame(moment(), 'day');
+    if (isToday) {
+      let nowAddOneHour = moment(new Date()).add({ hours: 1 }).toDate();
+      return nowAddOneHour;
+    }
+    return moment().startOf('day').toDate(); // set to 12:00 am today
+  }
+
+  setDropOffLocation=async(placeData)=>{
+    if(placeData?.formatted_address){
+      console.log('object',placeData?.formatted_address);
+      let placesSplit = placeData?.formatted_address.split(',');
+      console.log('split',placesSplit);
+      if(placesSplit?.length===4){
+          this.setState({
+            dropOffLocation:placesSplit?.[0],
+            dropUpCity:placesSplit?.[1]
+          })
+      }else if(placesSplit?.length===3) {
+        this.setState({
+          dropOffLocation:placesSplit?.[0],
+          dropUpCity:null
+        })
+      }
+    } 
+  }
+
+  setPickUpLocation=async(placeData)=>{
+    if(placeData?.formatted_address){
+      console.log('object',placeData?.formatted_address);
+      let placesSplit = placeData?.formatted_address.split(',');
+      console.log('split',placesSplit);
+      if(placesSplit?.length===4){
+          this.setState({
+            pickUpLocation:placesSplit?.[0],
+            pickUpCity:placesSplit?.[1]
+          })
+      }else if(placesSplit?.length===3) {
+        this.setState({
+          pickUpLocation:placesSplit?.[0],
+          pickUpCity:null
+        })
+      }
+    } 
+  };
+
+  searchCabs = async () => {
+    const { pickUpLocation, pickUpCity, dropOffLocation, dropUpCity , pickUpDate,
+    pickUpDate_new
+    } = this.state;
+    if(!pickUpLocation){
+      swal("Please select pick up location")
+    }
+    try {
+      let formData = {};
+      formData.pickUpLocation = pickUpLocation;
+      formData.pickUpCity = pickUpCity;
+      formData.dropOffLocation = dropOffLocation;
+      formData.dropUpCity = dropUpCity;
+      formData.pickUpDate=pickUpDate;
+      formData.pickUpDate_new=pickUpDate_new;
+      console.log(formData, 'formData');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  handleDatePickChange = date => {
+    let d = new Date(date)
+    let chance_pick = `${d.getFullYear()}-${d.getMonth() + 1 > 9 ? d.getMonth() + 1 : `0${d.getMonth() + 1}`}-${d.getDate() > 9 ? d.getDate() : `0${d.getDate()}`} ${d.getHours() > 9 ? d.getHours() : `0${d.getHours()}`}:${d.getMinutes() > 9 ? d.getMinutes() : `0${d.getMinutes()}`}:${d.getSeconds() > 9 ? d.getSeconds() : `0${d.getSeconds()}`}`
+    this.setState({
+      pickUpDate: date,
+      minTime: this.calculateMinTime(date),
+      pickUpDate_new: chance_pick
+    });
+  }
+
   render() {
     return (
       <section class="tj-banner-form2">
@@ -14,7 +112,7 @@ export default class HomeBooking extends Component {
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#one-way" data-toggle="tab">One Way</a></li>
                   <li><a href="#two-way" data-toggle="tab">Two Way</a></li>
-                  <li><a href="#out-station" data-toggle="tab">Out Station</a></li>
+                  {/* <li><a href="#out-station" data-toggle="tab">Out Station</a></li> */}
                 </ul>
               </div>
               <div class="tab-content" style={{ backgroundColor: 'cadetblue' }}>
@@ -24,12 +122,11 @@ export default class HomeBooking extends Component {
                       <h4>Picking Up</h4>
                       <div class="field-box">
                         <span class="fas fa-search"></span>
-                        {/* <input type="text" name="trip_pick_loc" placeholder="Pickup Locations" /> */}
                         <Autocomplete
                           apiKey={'AIzaSyDj9EqaqYYH6O5IjmFs6ZVdW61-wwXUS2k'}
                           style={{ width: "100%",marginBottom:'7px',height:'51px',color:'#333'}}
                           onPlaceSelected={(place) => {
-                            console.log(place);
+                             this.setPickUpLocation(place)
                           }}
                           options={{
                             types: ["(regions)"],
@@ -41,8 +138,11 @@ export default class HomeBooking extends Component {
                     <br/>
                     <div class="col-md-6 col-sm-6">
                       <div class="field-box">
-                        <span class="fas fa-calendar-alt"></span>
-                        <input type="text" name="trip_pick_date" placeholder="Select your Date" />
+                        <DatePickerModule
+                          startDate={this.state.pickUpDate}
+                          HandlePickUpdate={this.handleDatePickChange}
+                          minTime={this.state.minTime}
+                        />
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
@@ -55,7 +155,17 @@ export default class HomeBooking extends Component {
                       <h4>Dropping Off</h4>
                       <div class="field-box">
                         <span class="fas fa-search"></span>
-                        <input type="text" name="trip_drop_loc" placeholder="Dropping Locations" />
+                        <Autocomplete
+                          apiKey={'AIzaSyDj9EqaqYYH6O5IjmFs6ZVdW61-wwXUS2k'}
+                          style={{ width: "100%",marginBottom:'7px',height:'51px',color:'#333'}}
+                          onPlaceSelected={(place) => {
+                             this.setDropOffLocation(place)
+                          }}
+                          options={{
+                            types: ["(regions)"],
+                            componentRestrictions: { country: "ind" },
+                          }}
+                          />
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
@@ -77,7 +187,13 @@ export default class HomeBooking extends Component {
                       </div>
                     </div>
                     <div class="col-md-3 col-sm-3">
-                      <button type="button" class="search-btn">Search Cabs <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                      <button
+                        type="button"
+                        class="search-btn"
+                        onClick={this.searchCabs}
+                      >
+                        Search Cabs
+                      </button>
                     </div>
                   </div>
                 </div>

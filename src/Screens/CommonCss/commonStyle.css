@@ -14,6 +14,10 @@
     color: #d1d1d1;
 }
 
+.date-picker{
+    width: 100%;
+}
+
 .footer-icon-end{
     margin-right: 10px;
     width: 15px;
